@@ -1,11 +1,80 @@
+// Récupération des catégories de filtres depuis le serveur 
+const reponseFiltres = await fetch("http://localhost:5678/api/categories");
+const categories = await reponseFiltres.json();
+
+
+// Création des filtres portfolio à partir de l'API
+async function afficherFiltres(categories) {
+
+     // Création des catégories & boutons filtres
+    const categoriesFiltres = document.querySelector(".filters");
+    const btnTous = document.createElement("button")
+
+    // Création du bouton tous
+    btnTous.innerText = "Tous";
+    btnTous.setAttribute("data-category" , "Tous");
+    btnTous.classList.add("btn-filtrer"); 
+    categoriesFiltres.appendChild(btnTous);
+
+// Création des filtres à partir de la liste des filtres via l'API
+for (let i = 0; i < categories.length+1; i++) {
+
+    const filtresListe = categories[i];
+
+    // Création du bouton filtre dans le DOM
+    const btnFiltre = document.createElement("button");
+
+    // Ajout du texte dans le bouton filtre
+    btnFiltre.innerText = filtresListe.name;
+
+    // categories.push({"name": "Tous"})
+
+    // Ajout des paramètres des filtres
+    btnFiltre.setAttribute("data-category" , filtresListe.name);
+    btnFiltre.classList.add("btn-filtrer"); 
+
+    const btnFiltres = document.querySelectorAll(".btn-filtrer");
+
+
+    for (let i = 0; i < btnFiltres.length; i++) {
+
+    btnFiltres[i].addEventListener("click", function () {
+    
+    const categoryFiltre  = btnFiltres[i].getAttribute("data-category");
+    let projetsFiltres;
+
+    if (categoryFiltre === "Tous") {
+        projetsFiltres = works;
+    } else {
+        projetsFiltres = works.filter(works => works.category.name === categoryFiltre);
+    }
+
+    console.log(projetsFiltres);
+
+    // Vider la galerie avant d'afficher les projets filtrés
+    sectionGallery.innerHTML = '';
+            
+    // Ajouter les projets filtrés à la galerie
+    afficherProjets(projetsFiltres);
+    });
+    }
+
+    categoriesFiltres.appendChild(btnFiltre);
+    }
+}
+
+// Afficher tous les filtres au chargement de la page
+afficherFiltres(categories);
+
 // Récupération des pièces depuis le serveur 
 const reponse = await fetch("http://localhost:5678/api/works");
 const works = await reponse.json();
 
 const sectionGallery = document.querySelector(".gallery");
 
+
 // Création des éléments du portfolio à partir de l'API
-function afficherProjets(works) {
+async function afficherProjets(works) {
     
 for (let i = 0; i < works.length; i++) {
     const portfolio = works[i];
@@ -28,28 +97,3 @@ for (let i = 0; i < works.length; i++) {
 
 // Afficher tous les projets au chargement de la page
 afficherProjets(works);
-
-// Ajout des filtres
-const btnFiltres = document.querySelectorAll(".btn-filtrer");
-for (let i = 0; i < btnFiltres.length; i++) {
-
-btnFiltres[i].addEventListener("click", function () {
-    const categoryFiltre  = btnFiltres[i].getAttribute("data-category").toLowerCase();
-    let projetsFiltres;
-
-    if (categoryFiltre === "tous") {
-        projetsFiltres = works;
-    } else {
-        projetsFiltres = works.filter(works => works.category.name.toLowerCase()=== categoryFiltre);
-    }
-
-    console.log(projetsFiltres);
-
-    // Vider la galerie avant d'afficher les projets filtrés
-    sectionGallery.innerHTML = '';
-            
-    // Ajouter les projets filtrés à la galerie
-    afficherProjets(projetsFiltres);
-    });
-
-}
