@@ -132,10 +132,6 @@ nav ul a:hover {
 	margin-bottom: 4rem;
 }
 
-button {
-	background-color: none;
-	appearance: none;
-}
 
 .filters button {
 	height: 37px;
@@ -200,8 +196,11 @@ li:hover {
 }
 
 #portfolio h2 {
-	text-align: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 	margin-bottom: 2em;
+	gap: 20px;
 }
 
 .gallery {
@@ -261,6 +260,7 @@ input[type="submit"]{
 	width: 180px;
 	text-align: center;
 	border-radius: 60px ;
+	cursor: pointer;
 }
 
 footer {
@@ -314,4 +314,135 @@ footer nav ul {
 #login textarea {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+
+.champsEdition {
+    display: flex;
+    justify-content: center; /* Aligner le contenu à droite */
+    margin-bottom: 2em; /* Espacement en bas */
+	gap: 5px;
+}
+
+/* Style pour l'icône d'édition */
+
+.edit-button {
+	all: unset;
+	align-content: center;
+	background-color: none;
+	border-color: none;
+	cursor: pointer;
+}
+
+/* Style pour le texte "Modifier" */
+.edit-button-text {
+    align-content: center;
+	color: #000;
+    font-family: "Work Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+	cursor: pointer;
+}
+
+
+
+
+
+/* Modale */
+
+
+#modal1 {
+	position: fixed;
+    align-items: center;
+	justify-content: center;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+}
+
+.modal-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 100px; 
+	width: 630px;
+	height: 688px;	
+	flex-shrink: 0;
+	border-radius: 10px;
+	background: #FFF;
+}
+
+.header-modal{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	width: 100%;
+}
+
+.btn-close {
+	width: 20px;
+	background-color: white;
+    border: none;
+	padding: 30px 30px 0px;
+	cursor: pointer;
+}
+
+
+
+#title-modal {
+	padding: 30px 0px 60px;
+	color: #000;
+	text-align: center;
+	font-family: "Work Sans";
+	font-size: 26px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+#grid-modal {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: stretch;
+	align-content: stretch;
+	width: 420px;
+	height: 380px;	
+	border-bottom: 1px solid #B3B3B3;
+	gap: 15px;
+	padding-bottom: 30px;
+}
+
+.img-modal {
+	display: block;
+	flex-grow: 0;
+	flex-shrink: 1;
+	flex-basis: auto;
+	align-self: auto;
+	order: 0;
+	height: 110px;
+	width: 17%;
+	margin: 0px;
+	cursor: pointer;
+}
+
+#button-modal {
+	border-radius: 60px;
+    background: #1D6154;
+	margin: 40px 0px;
+    width: 237px;
+    height: 36px;
+    flex-shrink: 0;
+	color: #FFF;
+	text-align: center;
+	font-family: Syne;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	cursor: pointer;
 }
