@@ -152,6 +152,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             openModal2(event);  // Ouvre la modal 2
         });
         
+
         // Ajouter une photo
 
 });

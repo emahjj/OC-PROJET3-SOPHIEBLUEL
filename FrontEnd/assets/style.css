@@ -382,10 +382,8 @@ header {
 }
 
 
-
-
 /* Modale */
-#modal1 {
+#modal1, #modal2 {
 	position: fixed;
     align-items: center;
 	justify-content: center;
@@ -529,9 +527,9 @@ header {
 }
 
 
-.button-modal2Ajout {
+#button-modal2Ajout {
 	width: 173px;
-	height: 36px;
+	padding: 10px;
 	flex-shrink: 0;
 	border-radius: 50px;
 	background: #CBD6DC;
@@ -542,10 +540,25 @@ header {
 	font-style: normal;
 	font-weight: 500;
 	line-height: normal;
-	border: none;
 	cursor: pointer;
 }
-	
+
+#upload-photo {
+	width: 173px;
+	padding: 10px;
+	flex-shrink: 0;
+	border-radius: 50px;
+	background: #CBD6DC;
+	color: #306685;
+	text-align: center;
+	font-family: "Work Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	cursor: pointer;
+}
+
 .insert-photo p {
 	color: #444;
 	text-align: center;
@@ -581,3 +594,6 @@ header {
 	box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09)
 }
 
+.button-modal2 {
+	background-color: #1D6154;
+}
