@@ -423,10 +423,8 @@ header {
 	cursor: pointer;
 }
 
-
-
 #title-modal {
-	padding: 30px 0px 60px;
+	padding: 10px 0px 30px;
 	color: #000;
 	text-align: center;
 	font-family: "Work Sans";
@@ -503,3 +501,83 @@ header {
 	line-height: normal;
 	cursor: pointer;
 }
+
+
+.grid-modal2 {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: stretch;
+	align-content: stretch;
+	width: 420px;
+	height: 380px;	
+	border-bottom: 1px solid #B3B3B3;
+	gap: 5px;
+	padding-bottom: 30px;
+}
+
+
+.insert-photo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	border-radius: 3px;
+	background: #E8F1F6;
+	padding: 15px;
+}
+
+
+.button-modal2Ajout {
+	width: 173px;
+	height: 36px;
+	flex-shrink: 0;
+	border-radius: 50px;
+	background: #CBD6DC;
+	color: #306685;
+	text-align: center;
+	font-family: "Work Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	border: none;
+	cursor: pointer;
+}
+	
+.insert-photo p {
+	color: #444;
+	text-align: center;
+	font-family: "Work Sans";
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	}
+
+#ajoutPhoto {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding-top: 20px;
+}
+
+#ajoutPhoto label {
+	color: #3D3D3D;
+	font-family: "Work Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+}
+
+#ajoutPhoto input,select {
+	width: 420px;
+	height: 51px;
+	flex-shrink: 0;
+	border: none;
+	background: #FFF;
+	box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09)
+}
+

@@ -36,20 +36,23 @@ document.addEventListener("DOMContentLoaded", async () => {
 		headersEdition.appendChild(champsEdition);	
 
 
+
+
+  //Partie 1 - Modale
+
+
         //Fonction Ouvrir la modale
-        const openModal = function (event) {
+        const openModal1 = function (event) {
             event.preventDefault();
             
-            const modalSection = document.getElementById("modal1");
-            modalSection.style.display = "flex";
-            console.log("Modal has been opened");
+            const modal1Section = document.getElementById("modal1");
+            modal1Section.style.display = "flex";
+            console.log("Modal 1 has been opened");
         }
 
         
-        champsEdition.addEventListener("click", openModal);
+        champsEdition.addEventListener("click", openModal1);
         
-
-
 
         // Récupération des pièces depuis le serveur 
         const reponse = await fetch("http://localhost:5678/api/works");
@@ -114,18 +117,43 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Afficher tous les projets au chargement de la page
         afficherProjets(works);
 
-            
+
+
         // Fermer la modale
-        const closeModal = function (event) {
+        const closeModal1 = function (event) {
             event.preventDefault();
-            const modalSection = document.getElementById("modal1");
-            modalSection.style.display = "none";
-            console.log("Modal has been closed");
+            const modal1Section = document.getElementById("modal1");
+            modal1Section.style.display = "none";
+            console.log("Modal 1 has been closed");
         }
 
         const closeButton = document.querySelector(".btn-close");
-        closeButton.addEventListener("click", closeModal);
+        closeButton.addEventListener("click", closeModal1);
+
+
+
+//Partie 2 - Modale 2
+
+
         
+        //Fonction Ouvrir la modale 2
+        const openModal2 = function (event) {
+            event.preventDefault();
+
+            const modal2Section = document.getElementById("modal2");
+            modal2Section.style.display = "flex";
+            console.log("Modal 2 has been opened");
+
+        }
+        
+        const btnAjouterImage = document.getElementById("button-modal");
+        btnAjouterImage.addEventListener("click", function(event) {
+            closeModal1(event); // Ferme la modal 1
+            openModal2(event);  // Ouvre la modal 2
+        });
+        
+        // Ajouter une photo
+
 });
 
 
