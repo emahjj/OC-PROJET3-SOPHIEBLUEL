@@ -122,14 +122,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Fermer la modale
         const closeModal1 = function (event) {
             event.preventDefault();
+
             const modal1Section = document.getElementById("modal1");
             modal1Section.style.display = "none";
             console.log("Modal 1 has been closed");
         }
 
-        const closeButton = document.querySelector(".btn-close");
+        const closeButton = document.querySelector(".btn-close svg");
         closeButton.addEventListener("click", closeModal1);
-
 
 
 //Partie 2 - Modale 2
@@ -151,10 +151,19 @@ document.addEventListener("DOMContentLoaded", async () => {
             closeModal1(event); // Ferme la modal 1
             openModal2(event);  // Ouvre la modal 2
         });
-        
 
         // Ajouter une photo
 
+        const closeModal2 = function (event) {
+            event.preventDefault();
+
+            const modal2Section = document.getElementById("modal2");
+            modal2Section.style.display = "none";
+            console.log("Modal 2 has been closed");
+        }
+
+        const closeButton2 = document.querySelector(".btn-close2 svg");
+        closeButton2.addEventListener("click", closeModal2);
 });
 
 
