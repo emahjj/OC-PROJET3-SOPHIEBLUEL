@@ -152,8 +152,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             openModal2(event);  // Ouvre la modal 2
         });
 
-        // Ajouter une photo
-
+        // Fonction Fermeture modale 2
         const closeModal2 = function (event) {
             event.preventDefault();
 
@@ -164,6 +163,40 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const closeButton2 = document.querySelector(".btn-close2 svg");
         closeButton2.addEventListener("click", closeModal2);
+
+
+
+        // Envoi du formulaire avec le projet vers l'API 
+
+        const boutonValider = document.getElementById("button-modal2"); 
+
+        boutonValider.addEventListener("submit",  async (event) => {
+            event.preventDefault();
+
+            const title = document.getElementById("title-project").value;
+            const imageUrl = document.getElementById("upload-photo");
+            const categoryId = document.getElementById("category-project").value;
+        
+            const bodyForm = {
+                title,
+                imageUrl,
+                categoryId,
+            };
+
+            console.log(bodyForm);
+
+            fetch("http://localhost:5678/api/works", {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}` 
+                },
+
+                body: JSON.stringify(bodyForm) 
+            })          
+            
+        })
+
 });
 
 

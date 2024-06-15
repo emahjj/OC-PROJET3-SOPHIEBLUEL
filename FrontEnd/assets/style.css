@@ -424,7 +424,6 @@ header {
 	cursor: pointer;
 }
 
-
 #title-modal {
 	padding: 10px 0px 30px;
 	color: #000;
@@ -505,7 +504,7 @@ header {
 }
 
 
-.grid-modal2 {
+#grid-modal2 {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
@@ -597,13 +596,13 @@ header {
 	line-height: normal;
 }
 
-.button-modal2 {
-	width: 237px;
-	height: 36px;
-	flex-shrink: 0;
+#button-modal2 {
 	border-radius: 60px;
 	background: #A7A7A7;
-	width: 139px;
+	margin: 40px 0px;
+    width: 200px;
+    height: 30px;
+    flex-shrink: 0;
 	color: #FFF;
 	text-align: center;
 	font-family: Syne;
@@ -611,8 +610,9 @@ header {
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
+	cursor: pointer;
+	border: none;
 }
-
 
 .btn-close2 {
 	width: 20px;
