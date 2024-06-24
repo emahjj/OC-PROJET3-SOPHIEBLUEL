@@ -26,6 +26,7 @@ loginform.addEventListener("submit", (event) => {
     }))
   )
   .then(({ status, body }) => {
+    
     // Effacer les messages d'erreur d'avant
 
 
@@ -44,7 +45,7 @@ loginform.addEventListener("submit", (event) => {
 
         // afficher et stocker le jeton d'authentification
         console.log(body.token); 
-        localStorage.setItem('token', body.token);
+        localStorage.setItem("token", body.token);
 
         // Rediriger vers la page projets editable
         window.location.href = "index.html";
