@@ -276,14 +276,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         
 
         const logout = function(event){
+            event.preventDefault();
             
             const authLink = document.getElementById("authLink");
             authLink.innerHTML = "login";
             localStorage.removeItem("token");
-            
+            window.location.href = "login.html";
         }
 
         document.getElementById("authLink").addEventListener("click",logout);
+   
 
 });
 
