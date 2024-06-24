@@ -7,9 +7,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     		// Changer le login to logout
             const authLink = document.getElementById("authLink");
             authLink.innerHTML = "logout";	
-  		} 
-        
-          const modeEdition = document.querySelector("modeEdition"); 
+
+            const modeEdition = document.querySelector(".modeEdition"); 
           modeEdition.style.display = "flex";
 
            // Sélectionner l'élément où ajouter le bouton d'édition
@@ -36,11 +35,12 @@ document.addEventListener("DOMContentLoaded", async () => {
           champsEdition.appendChild(btnEditionDescription);
           headersEdition.appendChild(champsEdition);
 
-       
+
+              
   //Partie 1 - Modale
 
 
-        //Fonction Ouvrir la modale
+          //Fonction Ouvrir la modale
         const openModal1 = function (event) {
             event.preventDefault();
             
@@ -51,7 +51,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         
         champsEdition.addEventListener("click", openModal1);
-        
+          
+  		}         
 
         // Récupération des pièces depuis le serveur 
         const reponse = await fetch("http://localhost:5678/api/works");
@@ -229,14 +230,20 @@ document.addEventListener("DOMContentLoaded", async () => {
             const categoryId = document.getElementById("category-project").value;
             const boutonValider = document.getElementById("button-modal2"); 
 
-            if (title !== '' && imageUrl !== '' && categoryId !== '') {
+            if (title !== "" && imageUrl !== "" && categoryId !== "") {
                 boutonValider.disabled = false;
                 console.log("bouton valider actif");
             } else {
                 boutonValider.disabled = true;
                 console.log("bouton valider inactif");
-            }
-        }
+            }}
+
+        // Activation bouton valider 
+        // Ajouter des écouteurs d'événements sur les champs
+        document.getElementById("title-project").addEventListener("input", checkFields);
+        document.getElementById("button-modal2Ajout").addEventListener("change", checkFields);
+        document.getElementById("category-project").addEventListener("change", checkFields);
+
 
         // Envoi du formulaire avec le projet vers l'API 
         const boutonValider = document.getElementById("button-modal2"); 
@@ -261,25 +268,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'multipart/form-data'
                 },
                 body: formData
             }) 
             console.log("Le formulaire a été envoyé");         
         })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Success:', data);
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
-        });
-
+        
 });
 
 

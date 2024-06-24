@@ -527,22 +527,6 @@ header {
 	padding: 15px;
 }
 
-#button-modal2Ajout:disabled {
-	border-radius: 60px;
-    background: #A7A7A7;
-	margin: 40px 0px;
-    width: 200px;
-    height: 30px;
-    flex-shrink: 0;
-	color: #FFF;
-	text-align: center;
-	font-family: Syne;
-	font-size: 14px;
-	font-style: normal;
-	font-weight: 700;
-	line-height: normal;
-	cursor: not-allowed;
-}
 
 #button-modal2Ajout {
 	border-radius: 60px;
@@ -613,7 +597,7 @@ header {
 
 #button-modal2 {
 	border-radius: 60px;
-	background: #A7A7A7;
+    background: #1D6154;
 	margin: 40px 0px;
     width: 200px;
     height: 30px;
@@ -625,7 +609,24 @@ header {
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
-	border: none;
+	cursor: pointer;
+}
+
+#button-modal2:disabled {
+	border-radius: 60px;
+    background: #A7A7A7;
+	margin: 40px 0px;
+    width: 200px;
+    height: 30px;
+    flex-shrink: 0;
+	color: #FFF;
+	text-align: center;
+	font-family: Syne;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	cursor: not-allowed;
 }
 
 
