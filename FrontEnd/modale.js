@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             authLink.innerHTML = "logout";	
 
             const modeEdition = document.querySelector(".modeEdition"); 
-          modeEdition.style.display = "flex";
+            modeEdition.style.display = "flex";
 
            // Sélectionner l'élément où ajouter le bouton d'édition
           const headersEdition = document.querySelector("#portfolio h2");
@@ -274,6 +274,17 @@ document.addEventListener("DOMContentLoaded", async () => {
             console.log("Le formulaire a été envoyé");         
         })
         
+
+        const logout = function(event){
+            
+            const authLink = document.getElementById("authLink");
+            authLink.innerHTML = "login";
+            localStorage.removeItem("token");
+            
+        }
+
+        document.getElementById("authLink").addEventListener("click",logout);
+
 });
 
 
