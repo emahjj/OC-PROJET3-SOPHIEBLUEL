@@ -52,11 +52,12 @@ async function afficherFiltres(categories) {
         console.log(projetsFiltres);
 
         // Vider la galerie avant d'afficher les projets filtrés
-        sectionGallery.innerHTML = '';
+        sectionGallery.innerHTML = "";
                 
         // Ajouter les projets filtrés à la galerie
         afficherProjets(projetsFiltres);
         });
+
         }
 
         categoriesFiltres.appendChild(btnFiltre);
@@ -65,7 +66,6 @@ async function afficherFiltres(categories) {
 
 // Afficher tous les filtres au chargement de la page
 afficherFiltres(categories);
-
 
 
 // Récupération des pièces depuis le serveur 

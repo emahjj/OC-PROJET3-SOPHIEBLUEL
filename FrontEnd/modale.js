@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
           //Fonction Ouvrir la modale
-        const openModal1 = function (event) {
+            const openModal1 = function (event) {
             event.preventDefault();
             
             const modal1Section = document.getElementById("modal1");
@@ -239,7 +239,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             }}
 
         // Activation bouton valider 
-        // Ajouter des écouteurs d'événements sur les champs
         document.getElementById("title-project").addEventListener("input", checkFields);
         document.getElementById("button-modal2Ajout").addEventListener("change", checkFields);
         document.getElementById("category-project").addEventListener("change", checkFields);
@@ -255,7 +254,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const imageUrl = document.getElementById("button-modal2Ajout").files[0];
             const categoryId = document.getElementById("category-project").value;
             
-            console.log(imageUrl, title, ); 
+            console.log(imageUrl, title, categoryId); 
 
             const formData = new FormData ();
                formData.append("image", imageUrl);

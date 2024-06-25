@@ -12,11 +12,11 @@ loginform.addEventListener("submit", (event) => {
 
   // Send POST request to login API
   fetch("http://localhost:5678/api/users/login", {
-    method: 'POST', // HTTP method: POST
+    method: 'POST', 
     headers: {
-      'Content-Type': 'application/json' // Set the content type to JSON
+      'Content-Type': 'application/json' 
     },
-    body: JSON.stringify({ email, password }) // Convert email and password to a JSON string
+    body: JSON.stringify({ email, password })
   })
 
   .then (response => 
@@ -26,9 +26,6 @@ loginform.addEventListener("submit", (event) => {
     }))
   )
   .then(({ status, body }) => {
-    
-    // Effacer les messages d'erreur d'avant
-
 
     // Check response status and display messages
     if (status === 404) {
