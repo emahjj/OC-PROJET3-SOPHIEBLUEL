@@ -49,10 +49,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         champsEdition.addEventListener("click", openModal1);
 
-
-
-
-
         // Récupération des pièces depuis le serveur 
         const reponse = await fetch("http://localhost:5678/api/works");
         const works = await reponse.json();
@@ -93,9 +89,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 // Au click, Récupérer l'id du projet 
                 deleteButton.addEventListener("click", function (event) {
 
-                    const imageElementmodal = document.querySelector(".img-modal");
-
-                    clickedImageId = imageElementmodal.id;
+                    const clickedImageId = portfolio.id;
                     console.log(clickedImageId);
 
                     // Construire l'URL de l'API avec l'ID cliqué
