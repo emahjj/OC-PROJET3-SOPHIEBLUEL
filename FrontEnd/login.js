@@ -7,9 +7,6 @@ loginform.addEventListener("submit", (event) => {
   const email = document.getElementById("email").value;
   const password = document.getElementById("mdp").value;
 
-  console.log(email);
-  console.log(password);
-
   // Send POST request to login API
   fetch("http://localhost:5678/api/users/login", {
     method: 'POST', 
@@ -46,7 +43,6 @@ loginform.addEventListener("submit", (event) => {
 
         // Rediriger vers la page projets editable
         window.location.href = "index.html";
-
     }
   });
 });

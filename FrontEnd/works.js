@@ -1,23 +1,23 @@
-// Récupération des catégories de filtres depuis le serveur 
-const reponseFiltres = await fetch("http://localhost:5678/api/categories");
-const categories = await reponseFiltres.json();
-
-
 // Création des filtres portfolio à partir de l'API
-async function afficherFiltres(categories) {
+async function afficherFiltres() {
 
-     // Création des catégories & boutons filtres
+    // Récupération des catégories de filtres depuis le serveur 
+    const reponseFiltres = await fetch("http://localhost:5678/api/categories");
+    const categories = await reponseFiltres.json();
+
+
+    // Création des catégories & boutons filtres
     const categoriesFiltres = document.querySelector(".filters");
     const btnTous = document.createElement("button")
 
     // Création du bouton tous
     btnTous.innerText = "Tous";
-    btnTous.setAttribute("data-category" , "Tous");
-    btnTous.classList.add("btn-filtrer"); 
+    btnTous.setAttribute("data-category", "Tous");
+    btnTous.classList.add("btn-filtrer");
     categoriesFiltres.appendChild(btnTous);
 
     // Création des filtres à partir de la liste des filtres via l'API
-    for (let i = 0; i < categories.length+1; i++) {
+    for (let i = 0; i < categories.length; i++) {
 
         const filtresListe = categories[i];
 
@@ -30,42 +30,44 @@ async function afficherFiltres(categories) {
         // categories.push({"name": "Tous"})
 
         // Ajout des paramètres des filtres
-        btnFiltre.setAttribute("data-category" , filtresListe.name);
-        btnFiltre.classList.add("btn-filtrer"); 
+        btnFiltre.setAttribute("data-category", filtresListe.name);
+        btnFiltre.classList.add("btn-filtrer");
 
-        const btnFiltres = document.querySelectorAll(".btn-filtrer");
+        // Ajout dans catégorie filtre
+        categoriesFiltres.appendChild(btnFiltre);
 
+    }
 
-        for (let i = 0; i < btnFiltres.length; i++) {
+    const btnFiltres = document.querySelectorAll(".btn-filtrer");
+
+    for (let i = 0; i < btnFiltres.length; i++) {
 
         btnFiltres[i].addEventListener("click", function () {
-        
-        const categoryFiltre  = btnFiltres[i].getAttribute("data-category");
-        let projetsFiltres;
 
-        if (categoryFiltre === "Tous") {
-            projetsFiltres = works;
-        } else {
-            projetsFiltres = works.filter(works => works.category.name === categoryFiltre);
-        }
+            const categoryFiltre = btnFiltres[i].getAttribute("data-category");
+            let projetsFiltres;
 
-        console.log(projetsFiltres);
+            if (categoryFiltre === "Tous") {
+                projetsFiltres = works;
+            } else {
+                projetsFiltres = works.filter(work => work.category.name === categoryFiltre);
+            }
 
-        // Vider la galerie avant d'afficher les projets filtrés
-        sectionGallery.innerHTML = "";
-                
-        // Ajouter les projets filtrés à la galerie
-        afficherProjets(projetsFiltres);
+            console.log(projetsFiltres);
+
+            // Vider la galerie avant d'afficher les projets filtrés
+            sectionGallery.innerHTML = "";
+
+            // Ajouter les projets filtrés à la galerie
+            afficherProjets(projetsFiltres);
+
         });
-
-        }
-
-        categoriesFiltres.appendChild(btnFiltre);
-        }
+    }
 }
 
 // Afficher tous les filtres au chargement de la page
-afficherFiltres(categories);
+afficherFiltres();
+
 
 
 // Récupération des pièces depuis le serveur 
@@ -74,26 +76,27 @@ const works = await reponse.json();
 
 const sectionGallery = document.querySelector(".gallery");
 
-
 // Création des éléments du portfolio à partir de l'API
 async function afficherProjets(works) {
-    
-for (let i = 0; i < works.length; i++) {
-    const portfolio = works[i];
 
-    const figure = document.createElement("figure");
 
-    const imageElement = document.createElement("img");
-    imageElement.src = portfolio.imageUrl;
+    for (let i = 0; i < works.length; i++) {
 
-    const nomElement = document.createElement("figcaption");
-    nomElement.innerText = portfolio.title;
+        const portfolio = works[i];
 
-    // Ajout des éléments au DOM
-    figure.appendChild(imageElement);
-    figure.appendChild(nomElement);
+        const figure = document.createElement("figure");
 
-    sectionGallery.appendChild(figure);
+        const imageElement = document.createElement("img");
+        imageElement.src = portfolio.imageUrl;
+
+        const nomElement = document.createElement("figcaption");
+        nomElement.innerText = portfolio.title;
+
+        // Ajout des éléments au DOM
+        figure.appendChild(imageElement);
+        figure.appendChild(nomElement);
+
+        sectionGallery.appendChild(figure);
     }
 }
 
