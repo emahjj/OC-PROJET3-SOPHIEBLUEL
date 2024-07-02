@@ -4,6 +4,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Vérifier si un token est présent
     if (token) {
+        
+        // Retirer les filtres
+        const filters = document.querySelector(".filters");
+        filters.style.display = "none";
+        
         // Changer le login to logout
         const authLink = document.getElementById("authLink");
         authLink.innerHTML = "logout";
@@ -44,7 +49,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             const modal1Section = document.getElementById("modal1");
             modal1Section.style.display = "flex";
-            console.log("Modal 1 has been opened");
+            
         }
 
         champsEdition.addEventListener("click", openModal1);
@@ -90,7 +95,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 deleteButton.addEventListener("click", function (event) {
 
                     const clickedImageId = portfolio.id;
-                    console.log(clickedImageId);
+                    
 
                     // Construire l'URL de l'API avec l'ID cliqué
                     const apiUrl = `http://localhost:5678/api/works/${clickedImageId}`;
@@ -117,7 +122,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             const modal1Section = document.getElementById("modal1");
             modal1Section.style.display = "none";
-            console.log("Modal 1 has been closed");
+
         }
 
         const closeButton = document.querySelector(".btn-close svg");
@@ -132,7 +137,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             const modal2Section = document.getElementById("modal2");
             modal2Section.style.display = "flex";
-            console.log("Modal 2 has been opened");
+            
 
         }
 
@@ -149,7 +154,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             const modal2Section = document.getElementById("modal2");
             modal2Section.style.display = "none";
-            console.log("Modal 2 has been closed");
+            
 
             // Réinitialiser les champs 
             const form = document.querySelector(".ajoutPhoto");
@@ -175,7 +180,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const handleReturnButtonClick = function (event) {
             event.preventDefault();
-            console.log("Return button clicked");
+           
             closeModal2(event);
             openModal1(event);
         };
@@ -225,10 +230,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             if (title !== "" && imageUrl !== "" && categoryId !== "") {
                 boutonValider.disabled = false;
-                console.log("Button validate activated");
+                
             } else {
                 boutonValider.disabled = true;
-                console.log("Button validate disactivated");
+                
             }
         }
 
@@ -248,14 +253,14 @@ document.addEventListener("DOMContentLoaded", async () => {
             const imageUrl = document.getElementById("button-modal2Ajout").files[0];
             const categoryId = document.getElementById("category-project").value;
 
-            console.log(imageUrl, title, categoryId);
+            
 
             const formData = new FormData();
             formData.append("image", imageUrl);
             formData.append("title", title);
             formData.append("category", categoryId);
 
-            console.log(formData);
+            
 
             fetch("http://localhost:5678/api/works", {
                 method: 'POST',
@@ -264,7 +269,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 },
                 body: formData
             })
-            console.log("The form has been sent");
+            
         })
 
 

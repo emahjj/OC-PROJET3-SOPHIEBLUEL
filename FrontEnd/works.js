@@ -27,10 +27,8 @@ async function afficherFiltres() {
         // Ajout du texte dans le bouton filtre
         btnFiltre.innerText = filtresListe.name;
 
-        // categories.push({"name": "Tous"})
-
         // Ajout des paramètres des filtres
-        btnFiltre.setAttribute("data-category", filtresListe.name);
+        btnFiltre.setAttribute("data-category", filtresListe.id);
         btnFiltre.classList.add("btn-filtrer");
 
         // Ajout dans catégorie filtre
@@ -47,13 +45,16 @@ async function afficherFiltres() {
             const categoryFiltre = btnFiltres[i].getAttribute("data-category");
             let projetsFiltres;
 
+        
+          
+
             if (categoryFiltre === "Tous") {
                 projetsFiltres = works;
             } else {
-                projetsFiltres = works.filter(work => work.category.name === categoryFiltre);
+                projetsFiltres = works.filter(work => work.categoryId === parseInt(categoryFiltre));
             }
 
-            console.log(projetsFiltres);
+       
 
             // Vider la galerie avant d'afficher les projets filtrés
             sectionGallery.innerHTML = "";

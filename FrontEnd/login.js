@@ -3,6 +3,11 @@ const loginform = document.getElementById("loginform");
 loginform.addEventListener("submit", (event) => {
   event.preventDefault();
 
+  const prevMessageErreur = loginform.querySelector(".error-message, .success-message");
+  if (prevMessageErreur) {
+    prevMessageErreur.remove();
+  }
+
   // Get the email and password values
   const email = document.getElementById("email").value;
   const password = document.getElementById("mdp").value;
@@ -25,7 +30,7 @@ loginform.addEventListener("submit", (event) => {
   .then(({ status, body }) => {
 
     // Check response status and display messages
-    if (status === 404) {
+    if (status === 404 || status === 401) {
       let erreurMessage = document.createElement("p");
       erreurMessage.innerText = "Erreur dans l'identifiant ou le mot de passe";
       erreurMessage.className = "error-message";
@@ -37,12 +42,17 @@ loginform.addEventListener("submit", (event) => {
       successMessage.className = "success-message";
       loginform.appendChild(successMessage);
 
+  
+
         // afficher et stocker le jeton d'authentification
-        console.log(body.token); 
+        
         localStorage.setItem("token", body.token);
 
         // Rediriger vers la page projets editable
         window.location.href = "index.html";
+
+        
+        
     }
   });
 });
